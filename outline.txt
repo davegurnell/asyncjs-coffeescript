@@ -1,0 +1,48 @@
+* Introduction
+  * Prologue 1
+    - Coffeescript
+      - Coffeescript is an alternative syntax for JS
+      - It has a nice syntax
+      - It's great for functional programming (which is important !!)
+        - Who "gets" what FP is?
+      - Why you should care:
+        - It gives you advanced language features without worrying
+          about cross-browser support
+  * Prologue 2
+    - I'm a consultant developer and founder of a startup
+    - I use Coffeescript in a number of customer projects
+      and our codebase at Myna
+  * The agenda
+  * Following along at home...
+* Part 1: Hello World
+  * Variables 1
+    - Coffeescript auto-declares variables
+  * Variables 2
+  * Variables 3
+  * Conditionals
+  * Loops and conditionals
+  * Functions
+    - Thin-arrow syntax
+    - Bracketless function call syntax
+    - Using this for jQuery event handling
+* Big Features
+  * Expressions
+    - String interpolation
+    - Every expression has a return value
+    - Functional programming with Underscore.js
+    - The existential operator
+  * Functions
+    - Short function syntax
+    - Binding function syntax
+  * Classes and objects
+    - Prototype-based vs class-based inheritance
+    - Syntax
+    - UI programming with Backbone.js
+  * Existential operator
+- Downsides
+  - Automatic variable declaration
+    - Typos
+    - Variable shadowing
+  - Debugging compiled code
+    - Is it *actually* that hard?
+    - Source maps

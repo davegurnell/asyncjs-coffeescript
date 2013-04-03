@@ -42,6 +42,7 @@ module.exports = (grunt) =>
 				files:
 					'css/theme/default.css'   : 'css/theme/source/default.scss'
 					'css/theme/beige.css'     : 'css/theme/source/beige.scss'
+					'css/theme/coffee.css'    : 'css/theme/source/coffee.scss'
 					'css/theme/night.css'     : 'css/theme/source/night.scss'
 					'css/theme/serif.css'     : 'css/theme/source/serif.scss'
 					'css/theme/simple.css'    : 'css/theme/source/simple.scss'

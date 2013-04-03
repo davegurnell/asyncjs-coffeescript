@@ -1,0 +1,66 @@
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300);
+
+p, li {
+  font-family: 'Open Sans' !important;
+  font-weight: 300 !important;
+}
+
+h1, h2, h3, h4, h5, h6, h7 {
+  font-family: Lobster, cursive !important;
+}
+
+.editor-panes {
+  position: relative;
+  margin-left: -10px;
+  height: 560px;
+}
+
+.editor-pane {
+  float: left;
+  width: 480px;
+  height: 560px;
+  margin-left: 10px;
+  box-sizing: border-box;
+
+  border: none;
+  background: transparent;
+
+  text-align: left;
+  font-family: menlo,monospace !important;
+  font-size: 50% !important;
+  line-height: 150% !important;
+}
+
+.editor-panes.full-width,
+.editor-panes.full-width .editor-pane {
+  width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button.eval {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 0;
+  background: #333;
+  color: #eee;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.ace_gutter-cell {
+  text-align: left !important;
+}
+
+.ace_fold-widget {
+  vertical-align: top !important;
+}
+
+.ace_comment {
+  color: #888 !important;
+}
