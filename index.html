@@ -49,18 +49,39 @@
             by [@davegurnell](http://twitter.com/davegurnell)
             of [@mynaweb](http://twitter.com/mynaweb)
 
-            <small>Image credit: Flickr user <a href="http://www.flickr.com/photos/puuikibeach/3299635718/">Puuikibeach</a></small>
+            <small>Image credit: <a href="http://www.flickr.com/photos/puuikibeach/3299635718/">Flickr user Puuikibeach</a></small>
           </script>
         </section>
 
-        <section data-example data-js="no">
-          <h2>Prologue 1</h2>
+        <section data-example>
+          <h2>About me</h2>
           <script type="text/template">
+            speaker =
+              name:    'Dave Gurnell'
+              twitter: '@davegurnell'
+              website: 'http://davegurnell.com'
 
-            # Coffeescript is a simple alternative syntax for
-            # Javascript.
+              roles: [
+                {
+                  role:    'co-founder'
+                  company: 'Myna'
+                  website: 'http://mynaweb.com'
+                  doing:   'A/B testing for web and mobile'
+                }
 
-            # It's simple and terse:
+                {
+                  role:    'director/developer'
+                  company: 'Untyped'
+                  website: 'http://untyped.com'
+                  doing:   'full-stack web development, ux'
+                }
+              ]
+          </script>
+        </section>
+
+        <section data-example>
+          <h2>About Coffeescript</h2>
+          <script type="text/template">
             coffeescript =
               name:    'Coffeescript'
               creator: 'Jeremy Ashkenas'
@@ -68,61 +89,38 @@
               website: 'http://coffeescript.org'
               github:  'https://github.com/jashkenas/coffee-script'
 
-            # It makes functional programming (which you should care about) easy:
             fib = (n) ->
               if n <= 2 then 1 else fib(n-1) + fib(n-2)
-
-            # And it makes coding faster and less error-prone:
-            [ a, b, c ] = [ 1, 2, 3, ]
-
           </script>
-        </section>
 
-        <section data-example data-js="no">
-          <h2>Prologue 2</h2>
-          <script type="text/template">
+          <aside class="notes">
+            <p>It's a simple alternative syntax for Javascript - simple and terse</p>
 
-            # About me:
-            speaker =
-              name:    'Dave Gurnell'
-              twitter: '@davegurnell'
-              website: 'http://davegurnell.com'
+            <p>Made by Jeremy Ashkenas - creator of Underscore and Backbone</p>
 
-            # I develop full-stack web applications in all kinds of tech:
-            #   design, architect, build, test, train, etc...
+            <p>It compiles to Javascript - doesn't do anything more than JS does - nothing complex</p>
 
-            # I recently co-founded a startup doing A/B testing for web and mobile:
-            founderOf =
-              name:    'Myna'
-              website: 'http://mynaweb.com'
+            <p>It makes functional programming easy by reducing the language impedance</p>
 
-            # I'm a Scorpio and my favorite programming is functional:
-            preferredLanguages =
-              server: 'Scala'
-              client: 'Coffeescript'
-
-            # ...and I'm available for hire!!!
-          </script>
+            <p>It makes you faster and helps you avoid bugs</p>
+          </aside>
         </section>
 
         <section data-markdown>
           ## The agenda
 
-          - Introduction to syntax
-          - Important features
-          - Important gotchas
-          - Build tools and debugging
+          - Part 1: Motivation/syntax
+          - Part 2: Important features
+          - Part 3: Important gotchas
+          - Part 4: Tools and debugging
         </section>
 
         <section data-markdown>
-          ## Following along at home...
+          ## Follow along at home...
 
-          - **Arrow keys** switch slides
-          - **C** focuses on a Coffeescript editor
-          - **J** focuses on a Javascript editor
-          - **Esc** defocuses the current editor
-          - **Ctrl-E** or **Cmd-E** evaluates the script
-          - **Ctrl-/** or **Cmd-/** (un)comments code
+          Build and evaluate the examples for yourselves!
+
+          [https://github.com/davegurnell/asyncjs-coffeescript]()
         </section>
 
         <section data-markdown>
@@ -131,191 +129,756 @@
 
             <img src="img/hello-world.jpg" alt="Hello world">
 
-            In which we meet our hero and have some fun with syntax
+            In which we meet our hero and have some fun with the compiler
 
             <small>Image credit: <a href="http://www.flickr.com/photos/oskay/472097903/">Windell Oskay</a></small>
           </script>
         </section>
 
+        <section>
+          <h2>Statements and Expressions</h2>
+
+          <aside class="notes">
+            <p>What's the difference between a statement and an expression?</p>
+          </aside>
+        </section>
+
+        <section data-example data-mode="js">
+          <h2>Statements and Expressions 1</h2>
+
+          <script type="text/template">
+            1 + 1
+
+            for(var i = 0; i < 5; i++) {
+              "doSomething"
+            }
+
+            if(a % 2 == 0) "even"; else "odd"
+
+            function greet(name) {
+              return "Hello " + name
+            }
+
+            greet("everyone")
+          </script>
+
+          <aside class="notes">
+            <p>Which of these are statements and which are expressions?</p>
+
+            <p>The proper answer is to look at the language semantics and see how things are defined</p>
+
+            <p>We can get a pretty clear informal picture assigning them to variables or passing them to functions.</p>
+
+            <p>Next slide - look at same set of statements and expressions in Coffeescript</p>
+          </aside>
+        </section>
+
         <!--
-        - Variables
-        - Conditionals
-        - Loops and comprehensions
-        - Functions
-          -
+        <section data-example data-coffee="no">
+          <h2>Statements and Expressions 2</h2>
+          <script type="text/template">
+            var a = 1 + 1
+
+            var b = for(var i = 0; i < 5; i++) {
+                      "doSomething"
+                    }
+
+            var c = if(a % 2 == 0) "even"; else "odd"
+
+            var d = function (name) {
+                      return "Hello " + name;
+                    }
+
+            var e = d("everyone")
+
+            print(a, b, c, d, e)
+          </script>
+
+          <aside class="notes">
+            <p>Compile error 1: "for" unexpected - can use underscore:</p>
+
+            <pre>_.range(0, 10).map(function(num) { return "doSomething" })</pre>
+
+            <p>Compile error 1: "if" unexpected - change to a ternary</p>
+          </aside>
+        </section>
         -->
 
         <section data-example>
-          <h2>Variables 1</h2>
+          <h2>Statements and Expressions 3</h2>
           <script type="text/template">
-            # Coffeescript auto-declares variables for you
+            1 + 1
 
-            name = "Dave"
-            age = 34
-            hacker = true
+            for i in [0...5]
+              "doSomething"
 
-            arr = [ 1, 2, 3 ]
-            obj = { name: "Dave", age: 34 }
+            if a % 2 == 0 then "even" else "odd"
 
             greet = (name) ->
-              "Hello #{name}"
+              "Hello " + name
+
+            greet("everyone")
           </script>
+
+          <aside class="notes">
+            <p>Almost *everything* is an expression in Coffeescript</p>
+
+            <p>( Exceptions are a couple of imperative constrol constructs: return, break, etc )</p>
+
+            <p>Very functional-style - similar to Lisp, Ruby, Haskell, Scala, etc etc</p>
+
+            <p>The importance of this becomes apparent in a moment when we talk about functions</p>
+
+            <p>For now, let's look at the core set of expressions...</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Types of Expression</h2>
         </section>
 
         <section data-example>
-          <h2>Conditionals</h2>
+          <h2>Conditionals 1</h2>
           <script type="text/template">
-            # Standard conditional
-            if positiveThing
-              console.log "Win!"
+            x = 3
 
-            # Negative conditional
-            #unless negativeThing
-            #  console.log "Win again!"
-
-            # Postfix notation
-            #console.log("woo!") if 2 * 2 == 4
-            #console.log("noo!") unless 2 * 2 == 4
+            if x % 2 == 0
+              print('even')
+            else
+              print('odd')
           </script>
+
+          <aside class="notes">
+            <p>Very similar to a JS "if" - compiles to the same thing</p>
+
+            <p>Coffeescript is indentation-based - positive and negative blocks are indented - no braces</p>
+
+            <p>Can compress onto one line, but need "then" keyword to separate test from positive result</p>
+
+            <p>Let's look at this in the context of expressions...</p>
+          </aside>
         </section>
 
         <section data-example>
-          <h2>Loops and comprehensions 1</h2>
+          <h2>Conditionals 2</h2>
           <script type="text/template">
-            # Conventional "for" loops involve ranges:
+            x = 3
 
-            # Inclusive range:
-            for i in [1..10]
-              console.log(i)
+            ans = if x % 2 == 0
+                    'even'
+                  else
+                    'odd'
 
-            # Exclusive range:
-            #for i in [1...10]
-            #  console.log(i)
-
-            # In steps:
-            #for i in [1...10] by 2
-            #  console.log(i)
-
-            # In reverse:
-            #for i in [10..1]
-            #  console.log(i)
+            print(ans)
           </script>
+
+          <aside class="notes">
+            <p>What is the value of "ans"?</p>
+
+            <p>What about if we remove the "else" branch?</p>
+
+            <p>Compile to see JS - equivalent to ternary expressions</p>
+
+            <p>Add extra JS expressions to branches - compiled form becomes a larger ternary</p>
+
+            <p>Add extra JS statements to branches - compiled form becomes an "if" inside a self-executing function</p>
+
+            <p>Self-executing function is a trick CS uses to convert JS statements to expressions for an assignment. We'll see it again late. It's more to do with the assignment than the "if".</p>
+
+            <p>Remove assignment - compiled form reverts to regular "if"</p>
+          </aside>
         </section>
 
         <section data-example>
-          <h2>Loops and comprehensions 2</h2>
+          <h2>Conditionals 3</h2>
           <script type="text/template">
-            # Arrays:
-            for value in array
-              console.log value
+            x = 3
 
-            # Arrays with indices:
-            for value, index in array
-              console.log "#{index}: #{value}"
-
-            # Objects with keys and values:
-            for key, value of object
-              console.log "#{key}: #{value}"
+            switch x
+              when 1 then print('one')
+              when 2 then print('two')
+              when 3, 4, 5 then print('some')
+              else print('many')
           </script>
+
+          <aside class="notes">
+            <p>Switch statements use "when" for "case" and "else" for "default"</p>
+
+            <p>Need to use "then" in one-line "when" branches</p>
+
+            <p>Automatic insertion of "break" - no follow-through</p>
+
+            <p>Becomes interesting when using the resulting value...</p>
+          </aside>
         </section>
 
         <section data-example>
-          <h2>Loops and comprehensions 3</h2>
+          <h2>Conditionals 4</h2>
           <script type="text/template">
-            # Conditionals:
-            for value in array when value % 2 == 0
-              console.log value
+            x = 3
+
+            ans =
+              switch x
+                when 1 then 'one'
+                when 2 then 'two'
+                when 3, 4, 5 then 'some'
+                else 'many'
+
+            print(ans)
           </script>
+
+          <aside class="notes">
+            <p>Coffeescript uses an anonymous function to convert the JS statement into an expression.</p>
+
+            <p>You'll see the compiler do this when it has to. Not a huge performance concern on modern JS VMs, but does blow up your stack trace a little when debugging.</p>
+          </aside>
         </section>
 
         <section data-example>
+          <h2>Exception handling</h2>
+          <script type="text/template">
+            str = "abc"
+
+            ans =
+              try
+                str.length
+              catch exn
+                "bad stuff happened"
+              finally
+                "done"
+
+            print(ans)
+          </script>
+
+          <aside class="notes">
+            <p>What is the value of ans?</p>
+
+            <p>What if we remove the "catch" clause?</p>
+
+            <p>Note that "finally" doesn't yield a value either way</p>
+
+            <p>Note how this is compiled!</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Loops 1</h2>
+          <script type="text/template">
+            for [0..3]
+              print("hi")
+          </script>
+
+          <aside class="notes">
+            <p>This is the simplest "for" loop</p>
+
+            <p>Iterates through a "range" of values</p>
+
+            <p>Q. Inclusive or exclusive? Execute it and see.</p>
+
+            <p>Can switch to exclusive by changing ".." to "..."</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Loops 2</h2>
+          <script type="text/template">
+            for x in [0..3]
+              print(x)
+          </script>
+
+          <aside class="notes">
+            <p>Add "x in" to get the value of the current item in the range</p>
+
+            <p>But what's the value of the expression overall?</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Loops 3</h2>
+          <script type="text/template">
+            ans = for x in [0..15]
+                    x
+
+            print(ans)
+          </script>
+
+          <aside class="notes">
+            <p>The value of the loop is an array of the values of the bodies in each iteration.</p>
+
+            <p>Can change the expression in the loop to show that it's a bit like map.</p>
+
+            <p>Can also show "by 3" and "when x%2 == 0".</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Loops 4</h2>
+          <script type="text/template">
+            array = [1, 1, 2, 3, 5, 8, 13]
+
+            ans = for x, index in array
+                    "array[" + index + "]=" + x
+
+            print(ans)
+          </script>
+
+          <aside class="notes">
+            <p>You can also iterate through an array.</p>
+
+            <p>You can optionally use the index as you iterate.</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Loops 5</h2>
+          <script type="text/template">
+            obj = {a: 1, b: 2, c: 3 }
+
+            ans = for key, value of obj
+                    key + "=" + value
+
+            print(ans)
+          </script>
+
+          <aside class="notes">
+            <p>You can also loop through the keys in an object.</p>
+
+            <p>You can optionally ask for the value as well.</p>
+
+            <p>Note that this uses the keyword "of" instead of "in".</p>
+
+            <p>The resulting value is an array, not an object.</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Loops 6</h2>
+          <script type="text/template">
+            x = 5
+
+            ans1 = while x >= 0
+                     x--
+
+            ans2 = until x > 5
+                     x++
+
+            print(ans1, ans2)
+          </script>
+
+          <aside class="notes">
+            <p>While follows similar semantics, but doesn't have "by" or "when" clauses</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Take home points so far...</h2>
+
+          <ul>
+            <li>Everything in Coffeescript is an expression</li>
+            <li>The compiler keeps things as close to regular JS as it can</li>
+            <li>Sometimes extra variables and functions are needed</li>
+          </ul>
+
+          <aside class="notes">
+            <p>Everyting is an expression - bear this in mind as we move onto functions...</p>
+          </aside>
+        </section>
+
+        <section>
           <h2>Functions</h2>
+
+          <aside class="notes">
+            <p>Functions are reusable units of computation</p>
+
+            <p>Fundamental to functional languages like JS and CS - use them all over the place</p>
+
+            <p>Makes sense to keep the syntax light</p>
+          </aside>
+        </section>
+
+        <section data-example data-mode="js">
+          <h2>Functions 1</h2>
           <script type="text/template">
-            empty = ->
+            // Q. How long is the shortest definition
+            //    of an addition in Javascript?
 
-            returnFoo = -> "foo"
+            // A. 3 characters plus whitespace
 
-            multiply = (a, b) ->
-              a * b
+            a + b
 
-            divide = (a, b = 1) ->
-              a / b
+            // Q. How long is the shortest definition
+            //    of an addition *function*?
 
-            add = (args...) ->
-              _.reduce(args, (a, b) -> a + b, 0)
+            // A. ???
 
-            add 1, 2, 3, 4, 5
+          </script>
 
-            add array...
+          <aside class="notes">
+            <p><code>function(a, b) { return a + b }</code> = 24 characters plus whitespace</p>
+
+            <p>Lots of impedance here from the "function" keyword and "return" keyword</p>
+
+            <p>Coffeescript eliminates both of these - let's look at the example again in Coffeescript</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Functions 2</h2>
+          <script type="text/template">
+            # Q. How long is the shortest definition
+            #    of an addition in Coffeescript?
+
+            # A. 3 characters plus whitespace
+
+            a + b
+
+            # Q. How long is the shortest definition
+            #    of an addition *function*?
+
+            # A. ???
+
+          </script>
+
+          <aside class="notes">
+            <p><code>(a, b) -> a + b</code> = 10 characters plus whitespace</p>
+
+            <p>Must less impedence</p>
+
+            <p>"Function" is replaced by "->", which is much shorter</p>
+
+            <p>No "return" keyword - let's look at that...</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Functions 3</h2>
+          <script type="text/template">
+            ->
+
+            (x) -> x
+
+            (a, b) -> a + b
+
+            () ->
+              doStuff
+              doStuff
+              doStuff
+              result
+          </script>
+
+          <aside class="notes">
+            <p>The shortest function is just an arrow - this accepts no arguments and returns undefined</p>
+
+            <p>If you want arguments, put parens on the left</p>
+
+            <p>Functions always return the value of the last expression in the body</p>
+
+            <p>Similar to Ruby, Lisp, Scala, Haskell, etc...</p>
+
+            <p>Compile!</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Declarative style</h2>
+          <script type="text/template">
+            fib = (n) ->
+              # ...implement the fibonacci function...
+
+            # ...print the first 15 fibonacci numbers...
+          </script>
+
+          <aside class="notes">
+            <p>The combination of everything-is-an-expression and the short function syntax lets us write some great reusable code in a declarative style</p>
+
+            <p>Let's try some declarative programming - fibonacci numbers</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Functional style</h2>
+          <script type="text/template">
+            numbers = [1, 2, 3, 4, 5]
+
+            find = (array, test) ->
+              # ... implement a find function in recursive style...
+
+            # print("first number over 3", find(numbers, ...))
+
+            # print("first even number", find(numbers, ...))
+          </script>
+
+          <aside class="notes">
+            <p>Now let's try some functional programming</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Explicit return</h2>
+          <script type="text/template">
+            numbers = [1, 2, 3, 4, 5]
+
+            find = (array, test) ->
+              # ... implement a find function in iterative style...
+
+            print("first number over 3", find(numbers, (x) -> x > 3))
+
+            print("first even number", find(numbers, (x) -> x % 2 == 0))
+          </script>
+
+          <aside class="notes">
+            <p>You still have access to the "return" statement in Coffeescript</p>
+
+            <p>It's one of the few statements that's actually a statement</p>
+
+            <p>You can still program in imperative style</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Default arguments and splats</h2>
+          <script type="text/template">
+            greet = (name = "Dave") ->
+              "Hello " + name
+
+            greetAll = (names...) ->
+              for name in names then greet(name)
+
+            print(greetAll("Tim", "Daisy", "Mike", "Marsha", "Brian", "Twist"))
+          </script>
+
+          <aside class="notes">
+            <p>Function arguments can have default values</p>
+
+            <p>This is very pleasing</p>
+          </aside>
+        </section>
+        <section data-example>
+          <h2>Do expressions</h2>
+          <script type="text/template">
+            (->
+              foo
+              bar
+              baz
+            )()
+          </script>
+
+          <aside class="notes">
+            <p>Developers don't just use JS functions to create re-usable code blocks</p>
+
+            <p>Self-executing functions are the only way of introducing private variable scope</p>
+
+            <p>Self-executing functions look like garbage in Coffeescript</p>
+
+            <p>"do" syntax exists to provide this</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Function calls</h2>
+          <script type="text/template">
+            print("a", "b", "c")
+          </script>
+
+          <aside class="notes">
+            <p>You can omit parentheses from function calls</p>
+
+            <p>Still need commas to separate arguments</p>
+
+            <p>This syntax has a lot of oddities - be wary when starting with it</p>
+
+            <p>One really great use-case - jQuery callbacks</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Variables, Literals and Scope</h2>
+        </section>
+
+        <section data-example>
+          <h2>Literals 1</h2>
+          <script type="text/template">
+            string = "Dave"
+            number = 34
+            boolean = true
+          </script>
+
+          <aside class="notes">
+            <p>Compile this - simple literals are the same as JS</p>
+
+            <p>Ignore the "var" statements at the top - we'll come on to those in a minute</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Literals 2</h2>
+          <script type="text/template">
+            string = "Dave"
+            number = 34
+            boolean = true
+
+            array = [ string, number, boolean ]
+          </script>
+
+          <aside class="notes">
+            <p>Array literals are similar to JS too</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Literals 3</h2>
+          <script type="text/template">
+            string = "Dave"
+            number = 34
+            boolean = true
+
+            object = { string, number, boolean }
+          </script>
+
+          <aside class="notes">
+            <p>Coffeescript support ES6-style object shorthand</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Literals 4</h2>
+          <script type="text/template">
+            string = "Dave"
+            number = 34
+            boolean = true
+
+            bracelessObject =
+              string: string
+              number: number
+              boolean: boolean
+
+            $.ajax 'http://api.example.com',
+              data: { string, number }
+              dataType: 'json'
+          </script>
+
+          <aside class="notes">
+            <p>It also supports its own braceless-style object syntax</p>
+
+            <p>This can be used in a special function call syntax - useful for methods where the last argument is a settings object</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Literals 5</h2>
+          <script type="text/template">
+            string = "Dave"
+            number = 34
+            boolean = true
+
+            interpolatedString = "#{string} #{number} #{boolean} #{string + number}"
+          </script>
+
+          <aside class="notes">
+            <p>String interpolation - Ruby style - allows you to embed full expressions inside strings</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Literals 6</h2>
+          <script type="text/template">
+            string = "Dave"
+            number = 34
+            boolean = true
+
+            multiLineString =
+              """
+              A string #{string}
+              A number #{number}
+              A boolean #{boolean}
+              An expression #{string + number}
+              """
+          </script>
+
+          <aside class="notes">
+            <p>Strings can be expanded multi-line. Indentation is removed from the compiled string.</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Scope 1</h2>
+          <script type="text/template">
+            a = 1
+            b = 2
+            c = 3
+          </script>
+
+          <aside class="notes">
+            <p>Coffeescript auto-declares variables as "var"s for you - no global declarations</p>
+
+            <p>Declarations are "hoisted" to the top of a block</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Scope 2</h2>
+          <script type="text/template">
+            a = 1
+
+            func = ->
+              b = 2
+
+            do ->
+              c = 3
+
+          </script>
+
+          <aside class="notes">
+            <p>Blocks are: functions and "do" expressions</p>
+
+            <p>The top level of a script is wrapped in a "do" expression to prevent accidental leaks into the global namespace</p>
+
+            <p>You can break out of this top level wrapper by assigning to the "window" object</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Scope 3</h2>
+          <script type="text/template">
+            window.foo = "I escaped!"
+
+            window.sum = (a, b) -> a + b
+
+            # etc...
+          </script>
+
+          <aside class="notes">
+            <p>The top level of a script is wrapped in a "do" expression to prevent accidental leaks into the global namespace</p>
+
+            <p>You can break out of this top level wrapper by assigning to the "window" object</p>
+          </aside>
+        </section>
+
+        <section>
+          <h2>Part 2: Little treasures</h2>
+
+          <p><img src="img/treasure-island.jpg" alt="Treasure island"></p>
+
+          <p>In which we dig deep into some indispensable features</p>
+
+          <p><small>Image credit: Flickr user <a href="http://www.flickr.com/photos/adplayers/7269497292/">Adplayers</a></small></p>
           </script>
         </section>
 
-        <section data-markdown>
-          <script type="text/template">
-            ## Part 2: Little treasures
-
-            <img src="img/treasure-island.jpg" alt="Treasure island">
-
-            In which we dig deep into some indispensable features
-
-            <small>Image credit: Flickr user <a href="http://www.flickr.com/photos/adplayers/7269497292/">Adplayers</a></small>
-          </script>
+        <section>
+          <h2>Treasure #1: Fat arrow</h2>
         </section>
 
-        <section data-markdown>
-          ### Feature #1
-
-          Everything is an expression
+        <section>
+          <h2>Treasure #2: Existential operator</h2>
         </section>
 
-        <section data-markdown>
-          ## Expressions
-
-          - Everything is an expression
-          - Examples
-          - Judicious use of return
+        <section>
+          <h2>Treasure #3: Destructuring</h2>
         </section>
 
-        <section data-markdown>
-          ### Feature #2
-
-          The existential operator
-        </section>
-
-        <section data-markdown>
-          ## Existential operator
-
-          - Infix use
-          - Suffix use
-          - "?=" use
-        </section>
-
-        <section data-markdown>
-          ### Feature #3
-
-          "Fat arrow"
-        </section>
-
-        <section data-markdown>
-          ## Fat arrow
-
-          - Short function syntax = easier FP
-          - Fat arrow
-          - Errors using fat arrow
-        </section>
-
-        <section data-markdown>
-          ### Feature 4
-
-          Classes and objects
-        </section>
-
-        <section data-markdown>
-          ## Classes and objects
-
-          - Short function syntax = easier FP
-          - Fat arrow
-          - Errors using fat arrow
+        <section>
+          <h2>Treasure #4: Classes and objects</h2>
         </section>
 
         <section data-markdown>
@@ -338,7 +901,7 @@
 
             greetDave = () ->
               greeting = "Hello " + name
-              console.log(greeting)
+              print(greeting)
 
             # However, it is impossible to
             # shadow an outer variable declaration
@@ -346,7 +909,7 @@
             greetEveryone = () ->
               name = "everyone"
               greeting = "Hello " + name
-              console.log(greeting)
+              print(greeting)
 
             greetEveryone() # name set to "everyone"
 
@@ -360,6 +923,9 @@
     <script src="lib/js/underscore.js"></script>
     <script src="lib/js/coffeescript.js"></script>
     <script src="lib/js/ace/ace.js"></script>
+    <script src="lib/js/ace/theme-twilight.js"></script>
+    <script src="lib/js/ace/mode-coffee.js"></script>
+    <script src="lib/js/ace/mode-javascript.js"></script>
 
     <script src="lib/js/head.min.js"></script>
     <script src="js/reveal.js"></script>
@@ -386,9 +952,12 @@
 
         evaluate = (script, mode) ->
           console.clear()
-          ans = eval switch mode
-                 when 'coffee' then CoffeeScript.compile(reindent(trim(script)))
-                 else "(function() { #{trim(script)} })();"
+          try
+            eval switch mode
+              when 'coffee' then CoffeeScript.compile(reindent(trim(script)))
+              else "(function() { #{trim(script)} })();"
+          catch exn
+            printError(exn)
           return
 
         initEditor = (parent, script, mode, theme = 'ace/theme/twilight') ->
@@ -410,32 +979,21 @@
           session.setUseWrapMode true
           session.setTabSize 2
 
-          editor.commands.addCommand
-            name: 'Eval'
-            bindKey: { win: 'Ctrl-E', mac: 'Command-E' },
-            exec: () -> evaluate(session.getValue(), mode)
-
-          editor.commands.addCommand
-            name: 'Blur'
-            bindKey: { win: 'Escape', mac: 'Escape' },
-            exec: () -> editor.blur()
-
           pane.data('editor', editor)
 
           { pane, editor, session }
 
-        initEvalButton = (parent, mode) ->
-          $('<button class="eval">')
-            .data('mode', mode)
-            .text(if /Mac/g.test(navigator.platform) then 'Eval (Cmd-E)' else 'Eval (Ctrl-E)')
+        initBuildButton = (parent) ->
+          $('<button class="build">')
+            .text("Build (Ctrl-B)")
             .appendTo(parent)
+            .on('click', () -> $(this).trigger('build'))
 
-        evalButtonClicked = (evt) ->
-          button  = $(this)
-          mode    = button.data('mode')
-          wrapper = button.parents('.editor-panes')
-          editor  = wrapper.find(".editor-pane-#{mode}").data('editor')
-          evaluate(editor.getSession().getValue(), mode)
+        initEvalButton = (parent) ->
+          $('<button class="eval">')
+            .text("Eval (Ctrl-E)")
+            .appendTo(parent)
+            .on('click', () -> $(this).trigger('eval'))
 
         # Before we show any slides, we add a div.editor-panes
         # to fix their size. This prevents visual glitches when
@@ -443,12 +1001,11 @@
         initExample = () ->
           self = $(this)
 
-          unless self.is('[data-example]')
-            return
+          if self.is('[data-example]')
+            wrapper = $('<div>').addClass('editor-panes').appendTo(self)
+            output  = $('<div>').addClass('output').appendTo(self)
 
-          wrapper = $('<div>')
-            .addClass('editor-panes')
-            .appendTo(self)
+          return
 
         showExample = () ->
           self = $(this)
@@ -456,61 +1013,112 @@
           unless self.is('[data-example]')
             return
 
-          showCoffee = ! _.contains ['no', 'false'], self.data('coffee')
-          showJs     = ! _.contains ['no', 'false'], self.data('js')
+          mode   = self.data('mode') ? 'coffee'
           script = reindent(trim(self.find('script').html()))
 
           wrapper = self.find('.editor-panes')
+          output  = self.find('.output')
 
-          if showCoffee && showJs
-            coffee  = initEditor(wrapper, script, 'coffee')
-            js      = initEditor(wrapper, '', 'js')
-            run     = initEvalButton(wrapper, 'coffee')
+          wrapper.on 'clear', ->
+            lines = output.find('pre')
+            if lines.length > 0
+              lines.fadeOut('fast', () -> lines.remove())
+            else
+              wrapper.trigger('unzoom')
 
-            sync = () ->
-              try
-                js.session.setValue(trim(
-                  CoffeeScript.compile(coffee.session.getValue(), bare: true)))
-              catch { message }
-                js.session.setValue message
+          switch mode
+            when 'coffee'
+              coffee      = initEditor(wrapper, script, 'coffee')
+              js          = initEditor(wrapper, '// Ctrl-B to see the Javascript...', 'js')
+              buildButton = initBuildButton(wrapper)
+              evalButton  = initEvalButton(wrapper)
 
-            sync()
+              wrapper.addClass("full-width")
+              coffee.editor.resize()
+              js.pane.hide()
 
-            coffee.session.on 'change', sync
+              builtOnce = false
 
-          else if showCoffee
-            coffee = initEditor(wrapper, script, 'coffee')
-            run    = initEvalButton(wrapper, 'coffee')
-            wrapper.addClass("full-width")
-            coffee.editor.resize()
+              wrapper.on 'build', ->
+                try
+                  js.session.setValue(trim(CoffeeScript.compile(coffee.session.getValue(), bare: true)))
+                catch { message }
+                  js.session.setValue message
+                finally
+                  # Make any keypress build from now on...
+                  unless builtOnce
+                    builtOnce = true
 
-          else if showJs
-            js  = initEditor(wrapper, script, 'js')
-            run = initEvalButton(wrapper, 'js')
-            wrapper.addClass("full-width")
-            js.editor.resize()
+                    wrapper.removeClass('full-width')
+                    js.pane.show()
+                    coffee.editor.resize()
+                    js.editor.resize()
 
-          else
+                    coffee.pane.on('keyup', () -> wrapper.trigger('build'))
+
+              wrapper.on 'eval', ->
+                evaluate(coffee.editor.getSession().getValue(), 'coffee')
+
+              wrapper.on 'zoom', (evt, mode) ->
+                unless coffee.editor.isFocused() || js.editor.isFocused()
+                  switch mode
+                    when 'coffee' then coffee.editor.focus()
+                    when 'js'     then js.editor.focus()
+
+              wrapper.on 'unzoom', ->
+                coffee.editor.blur()
+                js.editor.blur()
+
+            when 'js'
+              js         = initEditor(wrapper, script, 'js')
+              evalButton = initEvalButton(wrapper)
+
+              wrapper.addClass("full-width")
+              js.editor.resize()
+
+              wrapper.on 'eval', ->
+                evaluate(js.editor.getSession().getValue(), 'js')
+
+              wrapper.on 'zoom', ->
+                unless js.editor.isFocused() then js.editor.focus()
+
+              wrapper.on 'unzoom', ->
+                js.editor.blur()
 
           return
 
         hideExample = () ->
           slide = $(this)
           slide.find('.editor-pane').each () -> $(this).data('editor')?.destroy()
-          slide.find('.editor-panes').html('')
+          slide.find('.editor-panes').off('build eval clear zoom unzoom').html('')
 
         # Global keyup handler
         globalKeyUp = (evt) ->
-          coffeeEditor = $('section.present .coffee-editor-pane').data('editor')
-          jsEditor     = $('section.present .js-editor-pane').data('editor')
-          unless coffeeEditor?.isFocused() || jsEditor?.isFocused()
-            switch evt.keyCode
-              when 67 # 'c'
-                coffeeEditor?.focus()
-                jsEditor?.blur()
-              when 74 # 'j'
-                coffeeEditor?.blur()
-                jsEditor?.focus()
+          wrapper = $('section.present .editor-panes')
+          focused = wrapper.find('.coffee-editor-pane').data('editor')?.isFocused() ||
+                    wrapper.find('.js-editor-pane').data('editor')?.isFocused()
+
+          switch evt.keyCode
+            when 27 # Esc
+              wrapper.trigger('clear')
+
+            when 66 then if evt.ctrlKey # 'Ctrl-B'
+              wrapper.trigger('build')
+
+            when 69 then if evt.ctrlKey # 'Ctrl-E'
+              wrapper.trigger('eval')
+
+            when 37 then if !focused # Right arrow
+              Reveal.prev()
+
+            when 39 then if !focused # Right arrow
+              Reveal.next()
+
+            when 67 then if evt.ctrlKey and !focused # 'Ctrl-C'
+              wrapper.trigger('zoom', 'coffee')
+
+            when 74 then if evt.ctrlKey and !focused # 'Ctrl-J'
+              wrapper.trigger('zoom', 'js')
 
         # Slide change handler for reveal.js:
         slideChanged = (evt) ->
@@ -518,9 +1126,49 @@
           hideExample.call(evt.previousSlide)
           console.clear()
 
+        printStringify = (data) ->
+          JSON.stringify(
+            data
+            (key, value) ->
+              switch typeof(value)
+                when "undefined" then "<undefined>"
+                when "function"  then "<function>"
+                when "number"
+                  switch value
+                    when Number.POSITIVE_INFINITY then "<positive-infinity>"
+                    when Number.NEGATIVE_INFINITY then "<negative-infinity>"
+                    else
+                      if isNaN(value) then "<not-a-number>" else value
+                else value
+            2
+          )
+
+        window.print = (args...) ->
+          console?.log?(args...)
+
+          outputPane = $('section.present').find('.output')
+          outputLine = $('<pre>').appendTo(outputPane).hide()
+          outputCode = $('<code class="json">').appendTo(outputLine)
+
+          outputCode.text(_.map(args, printStringify).join('\n'))
+
+          hljs.highlightBlock(outputLine[0])
+
+          outputLine.fadeIn('fast')
+
+        window.printError = (exn) ->
+          console?.error?(exn)
+
+          outputPane = $('section.present').find('.output')
+          outputLine = $('<pre class="error">').appendTo(outputPane).hide()
+          outputCode = $('<code class="error">').appendTo(outputLine)
+
+          outputCode.text(exn.toString())
+
+          outputLine.fadeIn('fast')
+
         $('body')
           .on('keyup', globalKeyUp)
-          .on('click', 'button.eval', evalButtonClicked)
           .find('[data-example]').each(initExample)
 
         Reveal.initialize
@@ -529,6 +1177,7 @@
           history: true
           center: true
           rollingLinks: false
+          keyboard: false
 
           theme: Reveal.getQueryHash().theme
           transition: 'none'
@@ -557,11 +1206,11 @@
             #   async: true
             #   condition: () => !!document.body.classList
             # }
-            # {
-            #   src: 'plugin/notes/notes.js'
-            #   async: true
-            #   condition: () => !!document.body.classList
-            # }
+            {
+              src: 'plugin/notes/notes.js'
+              async: true
+              condition: () => !!document.body.classList
+            }
             # {
             #   src: 'plugin/search/search.js'
             #   async: true

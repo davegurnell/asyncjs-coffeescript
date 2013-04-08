@@ -1,17 +1,71 @@
-* Introduction
-  * Prologue 1
-    - Coffeescript
-      - Coffeescript is an alternative syntax for JS
-      - It has a nice syntax
-      - It's great for functional programming (which is important !!)
-        - Who "gets" what FP is?
-      - Why you should care:
-        - It gives you advanced language features without worrying
-          about cross-browser support
-  * Prologue 2
-    - I'm a consultant developer and founder of a startup
-    - I use Coffeescript in a number of customer projects
-      and our codebase at Myna
+## Part 2: Little treasures
+
+- FAT ARROW
+  - Take simple -> function and convert to => - CS introduces "_this" variable
+
+- DESTRUCTURING SYNTAX
+  - Described really well on the Coffeescript site
+  - Use in assignment
+      futurists =
+        sculptor: "Umberto Boccioni"
+        painter:  "Vladimir Burliuk"
+        poet:
+          name:   "F.T. Marinetti"
+          address: [
+            "Via Roma 42R"
+            "Bellagio, Italy 22021"
+          ]
+
+      {poet: {name, address: [street, city]}} = futurists
+
+  - Use in function definitions
+
+  - Use with splats
+      tag = "<impossible>"
+      [open, contents..., close] = tag.split("")
+
+- THE EXISTENTIAL OPERATOR
+  - Plain form 'a?'
+    - Returns true unless variable is null or undefined
+    - As distinguished from JS if/||, which are confused by "falsy" values such as false and 0
+  - Assignment form '?='
+  - Accessor form '?.'
+
+- CLASSES and INHERITANCE
+  - What does inheritance get you?
+    - Data hiding
+    - Functionality overloading
+    - Polymorphism
+    - WHAT ELSE
+  - WHICH OF THESE ARE POSSIBLE IN COFFEESCRIPT/JAVASCRIPT ??
+  - Prototype-based inheritance versus class-based inheritance
+
+
+## Part 3: Gotchas
+
+- EFFING SYNTAX
+  - e.g. function calls - when can you omit parens, when can you have a newline, when can't you
+  - you *do* get used to it, but it's a bit hit and miss at first
+  - helps to have an editor that compiles snippets of coffeescript
+    - "CoffeeCompile" plugin for Sublime Text
+    - Alternatively, just sit there with Coffeescript.org open in your browser !!
+
+- VARIABLE SHADOWING
+
+- ANONYMOUS FUNCTION NAMES IN DEBUGGING OUTPUT
+
+- DEBUGGING AND SOURCE MAPS
+
+## Part 4: Tools
+
+- Coffee command line
+
+- Jitter
+
+- Grunt
+
+- Coffeescript in the web page
+
   * The agenda
   * Following along at home...
 * Part 1: Hello World
