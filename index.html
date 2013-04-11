@@ -21,6 +21,8 @@
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
+    <script src="foo.js"></script>
+
     <!-- If the query includes 'print-pdf', use the PDF print sheet -->
     <script>
       document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
@@ -118,9 +120,9 @@
         <section data-markdown>
           ## Follow along at home...
 
-          Build and evaluate the examples for yourselves!
+          Play with the code for yourselves!
 
-          [https://github.com/davegurnell/asyncjs-coffeescript]()
+          [https://davegurnell.github.com/asyncjs-coffeescript]()
         </section>
 
         <section data-markdown>
@@ -144,7 +146,7 @@
         </section>
 
         <section data-example data-mode="js">
-          <h2>Statements and Expressions 1</h2>
+          <h2 data-number>Statements and Expressions</h2>
 
           <script type="text/template">
             1 + 1
@@ -175,7 +177,7 @@
 
         <!--
         <section data-example data-coffee="no">
-          <h2>Statements and Expressions 2</h2>
+          <h2 data-number>Statements and Expressions</h2>
           <script type="text/template">
             var a = 1 + 1
 
@@ -205,7 +207,7 @@
         -->
 
         <section data-example>
-          <h2>Statements and Expressions 3</h2>
+          <h2 data-number>Statements and Expressions</h2>
           <script type="text/template">
             1 + 1
 
@@ -238,7 +240,7 @@
         </section>
 
         <section data-example>
-          <h2>Conditionals 1</h2>
+          <h2 data-number>Conditionals</h2>
           <script type="text/template">
             x = 3
 
@@ -260,7 +262,7 @@
         </section>
 
         <section data-example>
-          <h2>Conditionals 2</h2>
+          <h2 data-number>Conditionals</h2>
           <script type="text/template">
             x = 3
 
@@ -290,7 +292,7 @@
         </section>
 
         <section data-example>
-          <h2>Conditionals 3</h2>
+          <h2 data-number>Conditionals</h2>
           <script type="text/template">
             x = 3
 
@@ -313,7 +315,7 @@
         </section>
 
         <section data-example>
-          <h2>Conditionals 4</h2>
+          <h2 data-number>Conditionals</h2>
           <script type="text/template">
             x = 3
 
@@ -362,7 +364,7 @@
         </section>
 
         <section data-example>
-          <h2>Loops 1</h2>
+          <h2 data-number>Loops</h2>
           <script type="text/template">
             for [0..3]
               print("hi")
@@ -380,7 +382,7 @@
         </section>
 
         <section data-example>
-          <h2>Loops 2</h2>
+          <h2 data-number>Loops</h2>
           <script type="text/template">
             for x in [0..3]
               print(x)
@@ -394,7 +396,7 @@
         </section>
 
         <section data-example>
-          <h2>Loops 3</h2>
+          <h2 data-number>Loops</h2>
           <script type="text/template">
             ans = for x in [0..15]
                     x
@@ -412,7 +414,7 @@
         </section>
 
         <section data-example>
-          <h2>Loops 4</h2>
+          <h2 data-number>Loops</h2>
           <script type="text/template">
             array = [1, 1, 2, 3, 5, 8, 13]
 
@@ -430,7 +432,7 @@
         </section>
 
         <section data-example>
-          <h2>Loops 5</h2>
+          <h2 data-number>Loops</h2>
           <script type="text/template">
             obj = {a: 1, b: 2, c: 3 }
 
@@ -452,7 +454,7 @@
         </section>
 
         <section data-example>
-          <h2>Loops 6</h2>
+          <h2 data-number>Loops</h2>
           <script type="text/template">
             x = 5
 
@@ -497,7 +499,7 @@
         </section>
 
         <section data-example data-mode="js">
-          <h2>Functions 1</h2>
+          <h2 data-number>Functions</h2>
           <script type="text/template">
             // Q. How long is the shortest definition
             //    of an addition in Javascript?
@@ -523,7 +525,7 @@
         </section>
 
         <section data-example>
-          <h2>Functions 2</h2>
+          <h2 >Functions</h2>
           <script type="text/template">
             # Q. How long is the shortest definition
             #    of an addition in Coffeescript?
@@ -551,7 +553,7 @@
         </section>
 
         <section data-example>
-          <h2>Functions 3</h2>
+          <h2 data-number>Functions</h2>
           <script type="text/template">
             ->
 
@@ -696,7 +698,7 @@
         </section>
 
         <section data-example>
-          <h2>Literals 1</h2>
+          <h2 data-number>Literals</h2>
           <script type="text/template">
             string = "Dave"
             number = 34
@@ -711,7 +713,7 @@
         </section>
 
         <section data-example>
-          <h2>Literals 2</h2>
+          <h2 data-number>Literals</h2>
           <script type="text/template">
             string = "Dave"
             number = 34
@@ -726,7 +728,7 @@
         </section>
 
         <section data-example>
-          <h2>Literals 3</h2>
+          <h2 data-number>Literals</h2>
           <script type="text/template">
             string = "Dave"
             number = 34
@@ -741,7 +743,7 @@
         </section>
 
         <section data-example>
-          <h2>Literals 4</h2>
+          <h2 data-number>Literals</h2>
           <script type="text/template">
             string = "Dave"
             number = 34
@@ -765,7 +767,7 @@
         </section>
 
         <section data-example>
-          <h2>Literals 5</h2>
+          <h2 data-number>Literals</h2>
           <script type="text/template">
             string = "Dave"
             number = 34
@@ -780,7 +782,7 @@
         </section>
 
         <section data-example>
-          <h2>Literals 6</h2>
+          <h2 data-number>Literals</h2>
           <script type="text/template">
             string = "Dave"
             number = 34
@@ -801,7 +803,7 @@
         </section>
 
         <section data-example>
-          <h2>Scope 1</h2>
+          <h2 data-number>Scope</h2>
           <script type="text/template">
             a = 1
             b = 2
@@ -816,7 +818,7 @@
         </section>
 
         <section data-example>
-          <h2>Scope 2</h2>
+          <h2 data-number>Scope</h2>
           <script type="text/template">
             a = 1
 
@@ -838,7 +840,7 @@
         </section>
 
         <section data-example>
-          <h2>Scope 3</h2>
+          <h2 data-number>Scope</h2>
           <script type="text/template">
             window.foo = "I escaped!"
 
@@ -862,23 +864,714 @@
           <p>In which we dig deep into some indispensable features</p>
 
           <p><small>Image credit: Flickr user <a href="http://www.flickr.com/photos/adplayers/7269497292/">Adplayers</a></small></p>
+        </section>
+
+        <section>
+          <h2>Treasure #1: The Existential Operator</h2>
+        </section>
+
+        <section data-example data-mode="js">
+          <h2 data-number>The Existential Operator</h2>
+          <script type="text/template">
+            // { name: string, lastLogin: date } -> string
+            function greeting(options) {
+              var name = options.name;
+              var days = daysSince(options.lastLogin);
+
+              return "Welcome back, " + name + ". " +
+                     "You last logged in " + days + " days ago.";
+            }
+
+            // date date-or-null -> integer
+            function daysSince(date, now) {
+              now = now || new Date();
+              return Math.floor((now.getTime() - date.getTime()) /
+                                (24 * 60 * 60 * 1000));
+            }
+
+            alert(greeting({
+              name: "Dave",
+              lastLogin: new Date(2013, 3, 10)
+            }));
           </script>
+
+          <aside class="notes">
+            <p>Here's a classic example.</p>
+
+            <p>We have a <code>greeting</code> function that greets the player when they first log in to our app (note: use of <code>alert</code> in production apps is not advised).</p>
+
+            <p>Let's rewrite this in Coffeescript...</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2 data-number>The Existential Operator</h2>
+          <script type="text/template">
+            # { name: string, lastLogin: date } -> string
+            greeting = (options) ->
+              name = options.name
+              days = daysSince(options.lastLogin)
+
+              """
+              Welcome back, #{name}.
+              You last logged in #{days} days ago.
+              """
+
+            # date [date] -> integer
+            daysSince = (date, now = new Date()) ->
+              Math.floor((now.getTime() - date.getTime()) /
+                         (24 * 60 * 60 * 1000))
+
+            alert greeting
+              name: "Dave"
+              lastLogin: new Date(2013, 3, 10)
+          </script>
+
+          <aside class="notes">
+            <p>Let's introduce a problem... If the user has never logged, lastLogin may not be set.</p>
+
+            <p>What happens if we delete that key from the greeting object?</p>
+
+            <p>We need to fix the error - put in an "if" statement... next slide.</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2 data-number>The Existential Operator</h2>
+          <script type="text/template">
+            # { name: string, lastLogin: date } -> string
+            greeting = (options) ->
+              name = options.name
+              last = options.lastLogin
+              days = if last then daysSince(last) else null
+
+              if days
+                """
+                Welcome back, #{name}.
+                You last logged in #{days} days ago.
+                """
+              else
+                "Welcome, #{name}."
+
+            # date [date] -> integer
+            daysSince = (date, now = new Date()) ->
+              Math.floor((now.getTime() - date.getTime()) /
+                         (24 * 60 * 60 * 1000))
+
+            alert greeting
+              name: "Dave"
+              lastLogin: new Date(2013, 3, 10)
+          </script>
+
+          <aside class="notes">
+            <p>Now there's a bug.</p>
+
+            <p>With the date set to yesterday, this works.</p>
+            <p>If we delete the date, this works.</p>
+            <p>However, if we set the date to today, it doesn't work.</p>
+
+            <p>The problem is that days is zero, which is a "falsy" value.</p>
+
+            <p>With one character we can fix this! INSERT " ?" AND RETRY</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Postfix Existential Operator</h2>
+          <script type="text/template">
+            x = undefined
+
+            print(x?)
+          </script>
+
+          <aside class="notes">
+            <p>Let's compile this and see how it's implemented.</p>
+
+            <p>Insert it into a couple of expressions. POSTFIX ONLY.</p>
+
+            <pre>
+            </pre>
+
+            <p>Demo difference between "x? 1" and "x ? 1"</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Infix Existential Operator</h2>
+          <script type="text/template">
+            x = undefined
+            y = "y"
+
+            print(x ? y)
+          </script>
+
+          <aside class="notes">
+            <p>The infix form allows us to substitute a default value.</p>
+
+            <p>As you can imagine, this is great when destructuring objects full of options. Next slide.</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Infix Existential Operator</h2>
+          <script type="text/template">
+            options =
+              name: "Dave"
+              lastLogin: null
+              # age: 34
+
+            name = options.name      ? "No name"
+            last = options.lastLogin ? new Date()
+            age  = options.age       ? 21
+
+            print(name, last, age)
+          </script>
+
+          <aside class="notes">
+            <p>When objects become more complex, the accessor form of the operator comes into play.</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Existential Access Operator</h2>
+          <script type="text/template">
+            options =
+              foo: { a: "fooA", b: "fooB" }
+              bar: -> { x: "barX", y: "barY" }
+              baz: null
+          </script>
+
+          <aside class="notes">
+            <p>Describe object.</p>
+
+            <p>Write accessors to grab "fooA" and "barX" and "bazI".</p>
+
+            <p>One more form of the operator to discuss: assignment.</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Existential Assignment Operator</h2>
+          <script type="text/template">
+            x = undefined
+            y = 0
+
+            x ?= "defined"
+            y ?= -1
+
+            print(x, y)
+          </script>
+
+          <aside class="notes">
+            <p>Just like "||=" except honors 0 and false.</p>
+
+            <p>That covers the existential operator. If you like that, you'll love the next feature...</p>
+          </aside>
         </section>
 
         <section>
-          <h2>Treasure #1: Fat arrow</h2>
+          <h2>Treasure #2: Destructuring</h2>
+
+          <aside class="notes">
+            <p>This is the same destructuring syntax that's coming in ES6.</p>
+
+            <p>Let's start with a simple example of one form: <em>destrucuting assignment</em>.</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2 data-number>Destructuring assignment</h2>
+          <script type="text/template">
+            a = 1
+            b = 2
+
+            [ a, b ] = [ b, a ]
+
+            print(a, b)
+          </script>
+
+          <aside class="notes">
+            <p>This is the classic example of this.</p>
+
+            <p>Walk through it: construct array, pass through assignment operator, destructure on the left.</p>
+
+            <p>Variables on the left don't have to be previously defined. Replace with [x, y]</p>
+
+            <p>But this example doesn't capture the half of it...</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2 data-number>Destructuring assignment</h2>
+          <script type="text/template">
+            options =
+              foo: { a: "fooA", b: "fooB" }
+              bar: [ "bar1", "bar2", "bar3", "bar4", "bar5" ]
+              baz: null
+          </script>
+
+          <aside class="notes">
+            <p>Let's say we have data like this.</p>
+
+            <p>Tasks on slide:</p>
+
+            <ol>
+              <li>Capture fooA, fooB</li>
+              <li>Capture first three bars</li>
+              <li>Capture first/last/mid bars</li>
+            </ol>
+
+            <p>This syntax goes beyond assignment...</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Destructuring arguments</h2>
+          <script type="text/template">
+            greeting = ({ name, lastLogin }) ->
+              if lastLogin?
+                """
+                Welcome back, #{name}.
+                You last logged in #{daysSince(lastLogin)} days ago.
+                """
+              else
+                "Welcome, #{name}."
+
+            # date [date] -> integer
+            daysSince = (date, now = new Date()) ->
+              Math.floor((now.getTime() - date.getTime()) /
+                         (24 * 60 * 60 * 1000))
+
+            alert greeting
+              name: "Dave"
+              lastLogin: new Date(2013, 3, 11)
+          </script>
+
+          <aside class="notes">
+            <p>Any argument to a function can be specified in destructuring syntax.</p>
+
+            <p>We can mix this with default arguments and splats for more powerful function headers.</p>
+          </aside>
         </section>
 
         <section>
-          <h2>Treasure #2: Existential operator</h2>
+          <h2>Treasure #3: Classes and Objects</h2>
+
+          <aside class="notes">
+            <p>Who understands JS inheritance?</p>
+
+            <p>How do you implement classes in JS? Many ways!</p>
+
+            <p>Coffeescript has a pretty cood class system baked into the syntax.</p>
+
+            <p>We'll look at some of the issues. First, let's see what we want to achieve.</p>
+          </aside>
         </section>
 
         <section>
-          <h2>Treasure #3: Destructuring</h2>
+          <h2>Class System Wishlist...</h2>
+
+          <p class="fragment" data-fragment-index="0">Classes and instances</p>
+          <p class="fragment" data-fragment-index="1">Instances inherit properties from classes</p>
+          <p class="fragment" data-fragment-index="2">Classes inherit properties from other classes</p>
+          <p class="fragment" data-fragment-index="3">Method overriding / super calls</p>
+          <p class="fragment" data-fragment-index="4">Simple test for class membership</p>
+
+          <aside class="notes">
+            <p>Discuss requirements.</p>
+
+            <p>Next we'll see how to implement this using plain JS.</p>
+
+            <p>Then we'll see how Coffeescript implements it.</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2 data-number>Prototype Chains</h2>
+          <script type="text/template">
+            obj = { a: 1, b: 2 }
+            arr = [ 1, 2 ]
+            fun = -> "foo"
+          </script>
+
+          <aside class="notes">
+            <p>Objects, arrays, and functions in JS are all closely related. Technically, they're all types of object.</p>
+
+            <p>Every object has a <em>prototype</em> that you can access using <code>Object.getPrototypeOf</code> method. Show this.</p>
+
+            <p>All object literals have a prototype of <code>Object.prototype</code>. Show this.</p>
+
+            <p><code>Object.prototype</code> is also an object. This means it has its own prototype.</p>
+
+            <p>Arrays and functions are also types of object. They have different prototypes.</p>
+
+            <p>Note that functions define a property called <code>prototype</code>. This is something else. We'll come to it below...</p>
+
+            <p>What we get from all of this is a <em>prototype chain</em>. Let's take a look. Next slide.</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2 data-number>Prototype Chains</h2>
+          <script type="text/template">
+            obj = { a: 1, b: 2 }
+            arr = [ 1, 2 ]
+            fun = -> "foo"
+
+            # Prototype chain of obj, including obj itself.
+            prototypeChain = (obj) ->
+              if obj?
+                [ obj, prototypeChain(Object.getPrototypeOf(obj))... ]
+              else
+                [ obj ]
+
+            console.log prototypeChain(obj)
+            console.log prototypeChain(arr)
+            console.log prototypeChain(fun)
+          </script>
+
+          <aside class="notes">
+            <p>Examine the prototype chains. obj->Obj->null, fn->Fun->Obj->null, etc.</p>
+
+            <p>The key thing is what happens when you access a property on an object.</p>
+
+            <ul>
+            <li>If that object has its own property with that name, that's what you get.</li>
+            <li>If it doesn't have that property, we skip up the chain and look again.</li>
+            <li>If we don't find fin the property by the end of the chain, we return <code>undefined</code>.</li>
+            </ul>
+
+            <p>This is how we get all of those common properties like <code>call</code> and <code>bind</code> (from <code>Function.prototype</code>) and <code>length</code> (from <code>Array.prototype</code>).</p>
+
+            <p>It's also where methods like <code>$.isArray</code> and <code>$.isFunction</code> come from - they test the prototype chain for the presence of <code>Array.prototype</code> and <code>Function.prototype</code>.</p>
+
+            <p>In JS we can manipulate the prototype chain to link objects together how we want. There are a couple of ways. We'll talk about the lowest common denominator.</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2 data-number>Constructor Functions</h2>
+          <script type="text/template">
+            Animal = (noise) ->
+              this.noise = noise
+
+              this.speak = ->
+                print this.noise
+                return
+
+              return
+
+            dog   = new Animal("bark")
+            horse = new Animal("whinney")
+
+            dog.speak()
+            horse.speak()
+          </script>
+
+          <aside class="notes">
+            <p>The classic way of setting up a prototype chain is with a constructor function.</p>
+
+            <p>We use the <code>new</code> operator to create objects from the function. Most of us are used to this. If you're not, though, it seems like madness.</p>
+
+            <p>We get a lot of the basics of our class system from this: independent instances and classes.</p>
+
+            <p>Show dog != horse</p>
+
+            <p>Look at the prototype chains of <code>dog</code> and <code>Animal</code>. Show that <code>Animal</code> isn't part of <code>dog's</code> inheritance chain. It's a constructor function, not a class.</p>
+
+            <pre>console.log _.contains(prototypeChain(dog), Animal)</pre>
+
+            <p>Now notice something odd. dog.speak != horse.speak</p>
+
+            <p><code>speak</code> is copied between the objects - it isn't shared. We have no concept of common functionality. That's what a class is - how do we achieve that?</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2 data-number>Constructor Functions</h2>
+          <script type="text/template">
+            Animal = (noise) ->
+              this.noise = noise
+
+            Animal.prototype.speak = ->
+              print this.noise
+
+            dog   = new Animal("bark")
+            horse = new Animal("whinney")
+
+            print dog instanceof Animal
+
+            dog.speak()
+            horse.speak()
+
+            print dog.speak == horse.speak
+          </script>
+
+          <aside class="notes">
+            <p>Every function has a <code>prototype</code> property that we can use to manipulate the prototype chain on the objects it creates.</p>
+
+            <p>This is NOT the prototype of the function itself. It's the prototype of the instances it creates:</p>
+
+            <pre>
+            print Object.getPrototypeOf(Animal) == Animal.prototype
+            print Object.getPrototypeOf(dog) == Animal.prototype
+            </pre>
+
+            <p>The prototype property allows us to create shared state between our instances. It's acting like our class.</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Inheritance</h2>
+          <script type="text/template">
+            Animal = (noise) ->
+              this.noise = noise
+
+            Animal.prototype.speak = ->
+              print this.noise
+
+            Dog = (name) ->
+              this.name = name
+
+            # Missing line here...
+
+            Dog.prototype.comeHere = (name) ->
+              switch name
+                when this.name then print "coming!"
+                else                print "nope!"
+
+            bonzo = new Dog("Bonzo")
+
+            print bonzo instanceof Dog
+            print bonzo instanceof Animal
+
+            bonzo.comeHere("Fido")
+            bonzo.speak()
+          </script>
+
+          <aside class="notes">
+            <p>Now let's turn dogs into a subclass of animals.</p>
+
+            <p>In the code here we've set up two constructors, Dog and Animal, each with a method on their prototype.</p>
+
+            <p>We haven't linked them together, so dogs aren't animals yet and they don't speak().</p>
+
+            <p>How do we set up the prototype chain to cause Dog to be a subclass of Animal?</p>
+
+            <ul>
+            <li>Not Dog.prototype = Animal - it's a constructor function!</li>
+            <li>We have to link Dog's prototype to an <em>instance</em> of Animal.</li>
+            </ul>
+
+            <p>Dog.prototype = new Animal("bark")</p>
+
+            <p>Now, each dog has a separate noise and name, and each has a shared prototype chain. Things we haven't dealt with:</p>
+
+            <ul>
+              <li>You can't specify the noise in the constructor to dog. It's possible to do this with a couple of levels of indirection.</li>
+
+              <li>There's no concept of static methods or properties.</li>
+
+              <li>There're no super calls - we can call methods directly on prototypes, but we have to hard-code the prototype names.</li>
+
+              <li>It's easy to override <strong>this</strong> and cause the methods to mess up.</li>
+            </ul>
+
+            <p>It's getting pretty hairy now. Let's leave this, suffice to say that implementing flexible inheritance in Javascript is tricky</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2 data-number>Coffeescript Classes</h2>
+          <script type="text/template">
+            class Animal
+              constructor: (noise) ->
+                this.noise = noise
+
+              speak: ->
+                print this.noise
+          </script>
+
+          <aside class="notes">
+            <p>Here's a simple class definition in Coffeescript. Let's see how it compiles down.</p>
+
+            <p>This is similar to what we had earlier, and it works just the same.</p>
+
+            <p>Now let's see some inheritance.</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2 data-number>Coffeescript Classes</h2>
+          <script type="text/template">
+            class Animal
+              constructor: (noise) ->
+                this.noise = noise
+
+              speak: ->
+                print this.noise
+
+            class Dog extends Animal
+              constructor: (name) ->
+                super("bark")
+                this.name = name
+
+              comeHere: (name) ->
+                switch name
+                  when this.name then print "coming!"
+                  else                print "nope!"
+          </script>
+
+          <aside class="notes">
+            <p>This compiles to some pretty hairy code. However, it's nothing we wouldn't have to write ourselves. It works across browsers and it gives us what we want...</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2 data-number>Coffeescript Classes</h2>
+          <script type="text/template">
+            class Animal
+              constructor: (noise) -> this.noise = noise
+              speak: -> print this.noise
+
+            class Dog extends Animal
+              constructor: (name) ->
+                super("bark")
+                this.name = name
+
+              comeHere: (name) ->
+                switch name
+                  when this.name then print "coming!"
+                  else                print "nope!"
+
+            bonzo = new Dog("Bonzo")
+            fido = new Dog("Fido")
+
+            print bonzo == fido
+            print bonzo instance of Animal
+            fido.comeHere("Bonzo")
+            bonzo.speak()
+          </script>
+
+          <aside class="notes">
+            <ul>
+              <li>Separate instances</li>
+              <li>Simple test for class membership via 'instanceof'</li>
+              <li>Shared methods between the classes</li>
+              <li>Method overriding and super calls work as well</li>
+              <li>Static methods and variables</li>
+            </ul>
+
+            <p>Note that these classes are compatible with Backbone.js. Although Backbone isn't implemented in Coffeescript, its prototype chains are set up in this way. This means Coffeescript and Backbone go 100% hand in hand.</p>
+
+            <p>The only thing that we haven't solved is the binding of <code>this</code> within methods, and that brings us to our crowning jewel...</p>
+          </aside>
         </section>
 
         <section>
-          <h2>Treasure #4: Classes and objects</h2>
+          <h2>Treasure #4: Fat Arrow</h2>
+        </section>
+
+        <section data-example>
+          <h2 data-number>Fat Arrow</h2>
+          <script type="text/template">
+            this.x = 1
+
+            func = (y) -> this.x + y
+
+            print func(3)
+
+            that = { x: 2 }
+            print func.call(that, 3)
+          </script>
+
+          <aside class="notes">
+            <p>One of my biggest bugbears with Javascript is the reliance on the "this" variable.</p>
+
+            <p>The main issue is, of course, that "this" can be dynamically set by the calling function leading to odd results.</p>
+
+            <p>Explain example. If this looks reasonable to you, look at the next slide...</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2 data-number>Fat Arrow</h2>
+          <script type="text/template">
+            class Animal
+              constructor: (noise) ->
+                this.noise = noise
+
+              speak: ->
+                print this.noise
+
+            dog = new Animal("Bark")
+            horse = new Animal("Whinney")
+
+            dog.speak.call(horse)
+          </script>
+
+          <aside class="notes">
+            <p>You can make a dog whinney. Unbelievable.</p>
+
+            <p>How do we defend against bugs like this? We want to change the binding of "this" so that it is lexically bound rather than dynamically bound.</p>
+
+            <p>We can get around this by binding the value of "this" at function definition time using "Function.prototype.bind".</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2 data-number>Fat Arrow</h2>
+          <script type="text/template">
+            this.x = 1
+
+            func = (y) -> this.x + y
+
+            print func(3)
+
+            that = { x: 2 }
+            print func.call(that, 3)
+          </script>
+
+          <aside class="notes">
+            <p>Remember, every function has Function.prototype in its prototype chain. That has a method called "bind" that allows you to <em>fix</em> the value of "this".</p>
+
+            <p>func = ((y) -> this.x + y).bind(this)</p>
+
+            <p>Using "bind" is a major PITA in JS or Coffeescript. You have to explicitly remember to use it, wrap your function in parens, and att it to the end.</p>
+
+            <p>It's also difficult to read in code because the "bind" clause is beneath all the code you care about.</p>
+
+            <p>Fortunately, Coffeescript has a second function definition syntax that does the same thing.</p>
+
+            <p>Let's go back to the objects/classes example...</p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2 data-number>Fat Arrow</h2>
+          <script type="text/template">
+            class Animal
+              constructor: (noise) ->
+                this.noise = noise
+
+              speak: ->
+                print this.noise
+
+            dog = new Animal("Bark")
+            horse = new Animal("Whinney")
+
+            dog.speak.call(horse)
+          </script>
+
+          <aside class="notes">
+            <p>It's tricky to use "bind" here because we don't have a direct reference to the instance outside of our method/constructor definitions (it refers to the class, not the instance).</p>
+
+            <p>Fortunately, Coffeescript interprets fat arrow in a method correctly and augments the compiled code accordingly.</p>
+
+            <p>Note you mustn't use fat arrow on a constructor.</p>
+
+            <p>Fat arrow is the single most time-saving thing in Coffeescript. It's absolutely priceless. And that's all for little treasures.</p>
+          </aside>
         </section>
 
         <section data-markdown>
@@ -932,6 +1625,16 @@
 
     <script type="text/coffeescript">
       do () ->
+        headingNumbers = {}
+
+        numberHeading = ->
+          self = $(this)
+          text = self.text()
+          key = text.toLowerCase()
+          number = headingNumbers[key] ? 1
+          headingNumbers[key] = number + 1
+          self.text(text + ' ' + number)
+
         whitespaceChars = [ ' ', '\t' ]
 
         isBlank = (line) ->
@@ -949,6 +1652,13 @@
           lines  = script.split(/[\r\n]/)
           indent = _.min(_.map(lines, lineIndent))
           _.map(lines, (line) -> line.substring(indent)).join('\n')
+
+        # Special treatment of Coffeescript compiler errors:
+        exnMessage = (exn) ->
+          if exn.location && exn.message
+            "Error on line #{exn.location.first_line}: #{exn.message}"
+          else
+            exn.toString()
 
         evaluate = (script, mode) ->
           console.clear()
@@ -1022,9 +1732,13 @@
           wrapper.on 'clear', ->
             lines = output.find('pre')
             if lines.length > 0
-              lines.fadeOut('fast', () -> lines.remove())
+              wrapper.trigger('clearoutput')
             else
               wrapper.trigger('unzoom')
+
+          wrapper.on 'clearoutput', ->
+            lines = output.find('pre')
+            lines.fadeOut('fast', () -> lines.remove())
 
           switch mode
             when 'coffee'
@@ -1041,9 +1755,9 @@
 
               wrapper.on 'build', ->
                 try
-                  js.session.setValue(trim(CoffeeScript.compile(coffee.session.getValue(), bare: true)))
-                catch { message }
-                  js.session.setValue message
+                  js.session.setValue(trim(CoffeeScript.compile(coffee.session.getValue(), bare: false)))
+                catch exn
+                  js.session.setValue "// " + exnMessage(exn)
                 finally
                   # Make any keypress build from now on...
                   unless builtOnce
@@ -1090,7 +1804,7 @@
         hideExample = () ->
           slide = $(this)
           slide.find('.editor-pane').each () -> $(this).data('editor')?.destroy()
-          slide.find('.editor-panes').off('build eval clear zoom unzoom').html('')
+          slide.find('.editor-panes').off('build eval clear clearoutput zoom unzoom').html('')
 
         # Global keyup handler
         globalKeyUp = (evt) ->
@@ -1099,6 +1813,10 @@
                     wrapper.find('.js-editor-pane').data('editor')?.isFocused()
 
           switch evt.keyCode
+            when 16, 17, 18, 91, 93 # Shift, ctrl, alt, command
+              # Do nothing!
+              break
+
             when 27 # Esc
               wrapper.trigger('clear')
 
@@ -1119,6 +1837,9 @@
 
             when 74 then if evt.ctrlKey and !focused # 'Ctrl-J'
               wrapper.trigger('zoom', 'js')
+
+            else
+              wrapper.trigger('clearoutput')
 
         # Slide change handler for reveal.js:
         slideChanged = (evt) ->
@@ -1163,13 +1884,24 @@
           outputLine = $('<pre class="error">').appendTo(outputPane).hide()
           outputCode = $('<code class="error">').appendTo(outputLine)
 
-          outputCode.text(exn.toString())
+          message = exnMessage(exn)
+
+          outputCode.text(message)
 
           outputLine.fadeIn('fast')
+
+        window.prototypeChain = (obj) ->
+          if obj?
+            [ obj, prototypeChain(Object.getPrototypeOf(obj))... ]
+          else
+            [ obj ]
 
         $('body')
           .on('keyup', globalKeyUp)
           .find('[data-example]').each(initExample)
+
+        $('body')
+          .find('[data-number]').each(numberHeading)
 
         Reveal.initialize
           controls: true

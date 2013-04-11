@@ -1,46 +1,3 @@
-## Part 2: Little treasures
-
-- FAT ARROW
-  - Take simple -> function and convert to => - CS introduces "_this" variable
-
-- DESTRUCTURING SYNTAX
-  - Described really well on the Coffeescript site
-  - Use in assignment
-      futurists =
-        sculptor: "Umberto Boccioni"
-        painter:  "Vladimir Burliuk"
-        poet:
-          name:   "F.T. Marinetti"
-          address: [
-            "Via Roma 42R"
-            "Bellagio, Italy 22021"
-          ]
-
-      {poet: {name, address: [street, city]}} = futurists
-
-  - Use in function definitions
-
-  - Use with splats
-      tag = "<impossible>"
-      [open, contents..., close] = tag.split("")
-
-- THE EXISTENTIAL OPERATOR
-  - Plain form 'a?'
-    - Returns true unless variable is null or undefined
-    - As distinguished from JS if/||, which are confused by "falsy" values such as false and 0
-  - Assignment form '?='
-  - Accessor form '?.'
-
-- CLASSES and INHERITANCE
-  - What does inheritance get you?
-    - Data hiding
-    - Functionality overloading
-    - Polymorphism
-    - WHAT ELSE
-  - WHICH OF THESE ARE POSSIBLE IN COFFEESCRIPT/JAVASCRIPT ??
-  - Prototype-based inheritance versus class-based inheritance
-
-
 ## Part 3: Gotchas
 
 - EFFING SYNTAX
@@ -65,34 +22,6 @@
 - Grunt
 
 - Coffeescript in the web page
-
-  * The agenda
-  * Following along at home...
-* Part 1: Hello World
-  * Variables 1
-    - Coffeescript auto-declares variables
-  * Variables 2
-  * Variables 3
-  * Conditionals
-  * Loops and conditionals
-  * Functions
-    - Thin-arrow syntax
-    - Bracketless function call syntax
-    - Using this for jQuery event handling
-* Big Features
-  * Expressions
-    - String interpolation
-    - Every expression has a return value
-    - Functional programming with Underscore.js
-    - The existential operator
-  * Functions
-    - Short function syntax
-    - Binding function syntax
-  * Classes and objects
-    - Prototype-based vs class-based inheritance
-    - Syntax
-    - UI programming with Backbone.js
-  * Existential operator
 - Downsides
   - Automatic variable declaration
     - Typos
@@ -100,3 +29,25 @@
   - Debugging compiled code
     - Is it *actually* that hard?
     - Source maps
+
+REFERENCES
+
+Comparison of Coffeescript and ECMAScript.next
+    http://brendaneich.com/tag/javascript-ecmascript-harmony-coffeescript/
+
+    How "new" works
+    http://stackoverflow.com/questions/6750880/javascript-how-does-new-work-internally
+
+How the "prototype" property works
+    http://stackoverflow.com/questions/572897/how-does-javascript-prototype-work
+
+Coffeescript classes under the hood
+    http://www.jimmycuadra.com/posts/coffeescript-classes-under-the-hood
+
+THE FUTURE
+
+ECMAScript 6 ??
+ - When and how?
+ - Initially by cross-compilation
+ - Very similar process to Coffeescript - write ES6, deploy earlier JS
+ - Might as well get used to it now - source maps etc
