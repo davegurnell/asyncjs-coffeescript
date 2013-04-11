@@ -4,7 +4,7 @@
 
 Slides and demos for a talk I gave on Coffeescript at AsyncJS in Brighton on 11th April 2013.
 
-See the slides [here](http://davegurnell.github.com/asyncjs-coffeescript/slidea) and the demos [here](https://github.com/davegurnell/asyncjs-coffeescript/tree/master/demos).
+See the full content on <a href="http://davegurnell.github.io/asyncjs-coffeescript">Github pages</a>.
 
 ## Abstract
 
