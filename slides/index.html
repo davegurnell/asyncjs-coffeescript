@@ -16,7 +16,7 @@
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/coffee.css" id="theme">
-    <link rel="stylesheet" href="css/talk.css">
+    <link rel="stylesheet" href="css/slidea.css">
 
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -93,6 +93,11 @@
 
             fib = (n) ->
               if n <= 2 then 1 else fib(n-1) + fib(n-2)
+
+            print fib(10)
+
+            # Note: the print function is part of this talk,
+            # not part of Coffeescript.
           </script>
 
           <aside class="notes">
@@ -1714,6 +1719,56 @@
 
             <p>Use source maps to let you debug the raw Coffeescript directly. This is the topic of the next section.</p>
           </aside>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Part 4: Build Tools and Source Maps
+
+            <img src="img/lego.jpg" alt="A Cog in the Lego Machine">
+
+            In which we get our hands dirty
+
+            <small>Image credit: Flick user <a href="http://www.flickr.com/photos/49977858@N04/8563129995/">ethnosax</a></small>
+          </script>
+        </section>
+
+        <section>
+          <h2>Demo</h2>
+
+          <p>(see the <a href="https://github.com/davegurnell/asyncjs-coffeescript/tree/master/demos">demos</a> folder on Github)</p>
+        </section>
+
+        <section>
+          <h2>Further reading</h2>
+
+          <p><small><a href="http://coffeescript.org">The Coffeescript web site</a></small></p>
+
+          <p><small><a href="http://arcturo.github.io/library/coffeescript/">The Little Book on Coffeescript</a></small></p>
+
+          <p><small><a href="http://brendaneich.com/tag/javascript-ecmascript-harmony-coffeescript/">Comparison of Coffeescript and ECMAScript.next</a></small></p>
+
+          <p><small><a href="http://stackoverflow.com/questions/6750880/javascript-how-does-new-work-internally">How the <em>new</em> operator works</a></small></p>
+
+          <p><small><a href="http://stackoverflow.com/questions/572897/how-does-javascript-prototype-work">How the <em>prototype</em> property works</a></small></p>
+
+          <p><small><a href="http://www.jimmycuadra.com/posts/coffeescript-classes-under-the-hood">Coffeescript classes under the hood</a></small></p>
+
+          <p><small><a href="https://github.com/Xavura/CoffeeScript-Sublime-Plugin">Coffeescript plugin for Sublime Text</a></small></p>
+
+          <p><small><a href="https://github.com/TrevorBurnham/Jitter">Jitter: A Coffeescript Build Tool</a></small></p>
+        </section>
+
+        <section data-markdown>
+          <script type="text/template">
+            ## Thanks for listening
+
+            <img src="img/engine-start.jpg" alt="Start Your Engines Please">
+
+            Any questions?
+
+            <small>Image credit: <a href="http://www.flickr.com/photos/npobre/2601582256/">Norlando Pobre</a></small>
+          </script>
         </section>
       </div>
     </div>
