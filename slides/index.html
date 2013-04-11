@@ -16,17 +16,13 @@
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/coffee.css" id="theme">
-    <link rel="stylesheet" href="css/slidea.css">
+    <link rel="stylesheet" href="css/slides.css">
+    <link rel="stylesheet" href="css/print/paper.css" media="print">
 
     <!-- For syntax highlighting -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
 
     <script src="foo.js"></script>
-
-    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
-    <script>
-      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-    </script>
 
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
@@ -1873,8 +1869,11 @@
           self = $(this)
 
           if self.is('[data-example]')
-            wrapper = $('<div>').addClass('editor-panes').appendTo(self)
-            output  = $('<div>').addClass('output').appendTo(self)
+            script    = self.find('script').text()
+            wrapper   = $('<div>').addClass('editor-panes').appendTo(self)
+            output    = $('<div>').addClass('output').appendTo(self)
+            printable = $('<pre>').addClass('print-only').text(script).appendTo(self)
+
 
           return
 

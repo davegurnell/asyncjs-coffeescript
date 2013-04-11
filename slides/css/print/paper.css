@@ -152,7 +152,6 @@ ul, ol, div, p {
 	        transform: none !important;
 }
 .reveal section {
-	page-break-after: always !important;
 	display: block !important;
 }
 .reveal section .fragment {
@@ -168,9 +167,26 @@ ul, ol, div, p {
 	page-break-after: avoid !important;
 }
 .reveal section img {
-	display: block;
-	margin: 15px 0px;
-	background: rgba(255,255,255,1);
-	border: 1px solid #666;
-	box-shadow: none;
+	display: none !important;
+}
+
+img {
+  display: none !important;
+}
+
+pre {
+  border: none !important;
+  font-size: 12pt;
+}
+
+.print-only {
+  display: block !important;
+}
+
+.notes {
+  display: block !important;
+}
+
+.editor-panes {
+	display: none !important;
 }

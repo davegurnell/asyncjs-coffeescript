@@ -119,3 +119,7 @@ button.eval {
 .output code {
   background: transparent;
 }
+
+.print-only {
+  display: none !important;
+}

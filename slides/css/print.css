@@ -1,0 +1,21 @@
+img {
+  display: none !important;
+}
+
+pre {
+  border: none !important;
+  font-size: 12pt;
+}
+
+.print-only {
+  display: block !important;
+}
+
+.notes {
+  display: block !important;
+}
+
+section {
+  page-break-before: auto !important;
+  page-break-after: auto !important;
+}
