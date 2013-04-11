@@ -1,18 +1,3 @@
-## Part 3: Gotchas
-
-- EFFING SYNTAX
-  - e.g. function calls - when can you omit parens, when can you have a newline, when can't you
-  - you *do* get used to it, but it's a bit hit and miss at first
-  - helps to have an editor that compiles snippets of coffeescript
-    - "CoffeeCompile" plugin for Sublime Text
-    - Alternatively, just sit there with Coffeescript.org open in your browser !!
-
-- VARIABLE SHADOWING
-
-- ANONYMOUS FUNCTION NAMES IN DEBUGGING OUTPUT
-
-- DEBUGGING AND SOURCE MAPS
-
 ## Part 4: Tools
 
 - Coffee command line
@@ -43,6 +28,9 @@ How the "prototype" property works
 
 Coffeescript classes under the hood
     http://www.jimmycuadra.com/posts/coffeescript-classes-under-the-hood
+
+Coffeescript plugin for Sublime Text
+    https://github.com/Xavura/CoffeeScript-Sublime-Plugin
 
 THE FUTURE
 

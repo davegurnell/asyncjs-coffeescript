@@ -1576,38 +1576,144 @@
 
         <section data-markdown>
           <script type="text/template">
-            ## Part 3: Eeeeevil!
+            ## Part 3: Little Devils
+
+            <img src="img/nosferatu.jpg" alt="Eeeeevil">
 
             In which we examine potential gotchas
 
-            <img src="img/nosferatu.jpg" alt="Eeeeevil">
+            <small>Public domain image from the film <a href="https://en.wikipedia.org/wiki/Nosferatu">Nosferatu</a></small>
           </script>
+        </section>
+
+        <section data-example>
+          <h2>&quot;Friendly&quot; Syntax</h2>
+          <script type="text/template">
+            # No code samples!
+
+            # Quick... vamp (no pun intended).
+          </script>
+
+          <aside class="notes">
+            <p>This isn't so much a permanent gotcha as a learning curve.</p>
+
+            <p>Some of the "friendly" syntax takes some getting used to.</p>
+
+            <p>I don't believe there's a formal syntax definition - a lot of it is inferred (like Ruby).</p>
+
+            <p>Illustrate by writing some code...</p>
+
+            <p>
+              Parenless function calls:<br>
+              Can omit parens if there's one or more param.<br>
+              Omitting commas turns it into a nested call.<br>
+              Putting in commas changes meaning depending on whether it's an object literal.<br>
+              Must put first argument on same line unless it's an object literal.
+            </p>
+
+            <p>
+              Existential operator:<br>
+              Difference between a ? "default" and a? "default"
+            </p>
+
+            <p>
+              Gotchas for a Scala programmer:<br>
+              Don't omit the parens around an argument list.<br>
+              Make sure you put the parens in on an argumentless function call.
+            </p>
+
+            <p>Golden rule is to always keep some form of compiler close to hand when you're learning. If there isn't a plugin for your editor, just go to coffeescript.org.</p>
+
+            <p>Getting to grips with the compiler is useful anyway - don't shy away from the compled code - get used to it and make it work for you!</p>
+          </aside>
         </section>
 
         <section data-example>
           <h2>Variable shadowing</h2>
           <script type="text/template">
-            # Declarations are hoisted to
-            # the top of the current block
-
             name = "Dave"
 
             greetDave = () ->
               greeting = "Hello " + name
-              print(greeting)
-
-            # However, it is impossible to
-            # shadow an outer variable declaration
+              print greeting
 
             greetEveryone = () ->
               name = "everyone"
               greeting = "Hello " + name
-              print(greeting)
+              print greeting
 
-            greetEveryone() # name set to "everyone"
+            greetEveryone()
 
-            greetDave() # oh noes!
+            greetDave()
           </script>
+
+          <aside class="notes">
+            <p>My biggest grievance with Coffeescript is the inability to explicitly define variables.</p>
+
+            <p>It leads to issues where it's impossible to shadow a variable in a tighter scope.</p>
+
+            <p>This typically isn't an issue in practical applications for two reasons:</p>
+
+            <ol>
+              <li>Using modules keeps your code divided into small chunks where you can see everything that's going on.</li>
+
+              <li>If you make use of objects and classes, you end up using "this" a lot, which (ironically) you typically have control over using fat arrow.</li>
+            </ol>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Expanded stack traces</h2>
+          <script type="text/template">
+            coords = for x in [1..2]
+                       for y in [1..2]
+                         for x in [1..2]
+                           [x, y, z]
+
+            print coords
+          </script>
+
+          <aside class="notes">
+            <p>Coffeescript injects anonymous functions in a number of places:</p>
+
+            <ul>
+              <li>Whenever it converts a Javascript statement into an expression.</li>
+              <li>Whenever it creates a class that extends another class.</li>
+            </ul>
+
+            <p>
+              These come back in your stack traces, so be aware that they exist.<br>
+              It's not too bad - Coffeescript names important things like constructor functions,
+              so you normally have a point of reference.
+            </p>
+          </aside>
+        </section>
+
+        <section data-example>
+          <h2>Debugging</h2>
+          <script type="text/template">
+            getGreetings = (people...) ->
+              for { name, lastLogin } in people
+                if lastLogin?
+                  "Welcome back, #{name}."
+                else
+                  "Welcome, #{name}."
+
+            print getGreetings(
+              { name: "Dave", lastLogin: new Date(2013, 3, 11) }
+              { name: "Anonymous" }
+            )
+          </script>
+
+          <aside class="notes">
+            <p>The simplest Coffeescript programs can sometimes expand into some complex Javascript.</p>
+
+            <p>Two ways around this:</p>
+
+            <p>Either write Javascript-like code in Coffeescript (limit which syntactic structures you use as expressions, limit use of destructuring and existential operators).</p>
+
+            <p>Use source maps to let you debug the raw Coffeescript directly. This is the topic of the next section.</p>
+          </aside>
         </section>
       </div>
     </div>
@@ -1686,7 +1792,7 @@
                             when 'coffee' then 'ace/mode/coffee'
                             else 'ace/mode/javascript'
           session.setUseSoftTabs true
-          session.setUseWrapMode true
+          session.setUseWrapMode mode == 'coffee'
           session.setTabSize 2
 
           pane.data('editor', editor)
@@ -1755,7 +1861,7 @@
 
               wrapper.on 'build', ->
                 try
-                  js.session.setValue(trim(CoffeeScript.compile(coffee.session.getValue(), bare: false)))
+                  js.session.setValue(trim(CoffeeScript.compile(coffee.session.getValue(), bare: true)))
                 catch exn
                   js.session.setValue "// " + exnMessage(exn)
                 finally
